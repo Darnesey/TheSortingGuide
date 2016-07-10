@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
         android:gravity="center_horizontal"
-        android:text="Produced from Montana State University&apos;s Software Factory"
+        android:text="Produced from Montana State University&apos;s \nSoftware Factory"
         android:id="@+id/appProd"
         />
 
