@@ -230,6 +230,7 @@ public class MainActivity extends ActionBarActivity
     public void enter(View view) {
 //        retrieves the shared preferences for the randomizer, which is true or false
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SortView.setActivity(this);
 
         if (prefs.getBoolean("random_numbers", false)){
             this.toSort = Sorting.randList(10);
@@ -239,7 +240,7 @@ public class MainActivity extends ActionBarActivity
             this.resultbox = resultBox;
             resultBox.setText(Sorting.toString(toSort));
             SortView.setToSort(Sorting.sortSteps.steps);
-            SortView.setActivity(this);
+            //SortView.setActivity(this);
 
             LayoutInflater vi = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View sort_view = vi.inflate(R.layout.sort_view, null);
