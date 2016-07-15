@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.msu_software_factory.thesortingguide.descriptions">
+    tools:context="com.msu_software_factory.thesortingguide.Descriptions">
 
 
     <Spinner

@@ -240,6 +240,7 @@ public class MainActivity extends ActionBarActivity
             this.resultbox = resultBox;
             resultBox.setText(Sorting.toString(toSort));
             SortView.setToSort(Sorting.sortSteps.steps);
+            // Wile E. Coyote Crash was caused here. Moved the line outside of the if conditions
             //SortView.setActivity(this);
 
             LayoutInflater vi = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
