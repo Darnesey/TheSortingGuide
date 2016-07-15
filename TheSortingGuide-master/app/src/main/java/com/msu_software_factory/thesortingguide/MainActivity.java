@@ -230,6 +230,7 @@ public class MainActivity extends ActionBarActivity
     public void enter(View view) {
 //        retrieves the shared preferences for the randomizer, which is true or false
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SortView.setActivity(this);
 
         if (prefs.getBoolean("random_numbers", false)){
             this.toSort = Sorting.randList(10);
@@ -239,7 +240,8 @@ public class MainActivity extends ActionBarActivity
             this.resultbox = resultBox;
             resultBox.setText(Sorting.toString(toSort));
             SortView.setToSort(Sorting.sortSteps.steps);
-            SortView.setActivity(this);
+            // Wile E. Coyote Crash was caused here. Moved the line outside of the if conditions
+            //SortView.setActivity(this);
 
             LayoutInflater vi = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View sort_view = vi.inflate(R.layout.sort_view, null);
@@ -250,22 +252,23 @@ public class MainActivity extends ActionBarActivity
         }else {
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
             alertDialog.setTitle("Enter randomly assorted numbers");
-            alertDialog.setMessage("Enter any amount of randomly assorted numbers (the lesser the faster) ranging between and including 0 and 99, with each number separated by commas.");
+            alertDialog.setMessage("Enter 3 to 10 randomly assorted numbers (the lesser the faster) ranging between and including 0 and 99, with each number separated by commas.");
             final EditText input = new EditText(this); //  INPUT VARIABLE
-            input.setHint("For example: 99, 2, 34, 56, 68");
+            input.setHint("For example: 99, 2, 34, 56, 68, 78, 1, 5");
             input.setInputType(InputType.TYPE_CLASS_TEXT);
             alertDialog.setView(input);
             alertDialog.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     System.out.println(input.getText().toString());
                     String temp = input.getText().toString();
+                   //                                                       Input random numbers formula.
                     int[] toSort;
                     if (input != null) {
                         toSort = parseArray(input.getText().toString());
                     } else {
                         toSort = new int[0];
                     }
-                    if ( toSort != null && toSort.length == 6) {
+                    if ( toSort != null && toSort.length <= 10) {
                         toSort = sort(toSort, method);
                         TextView resultBox = (TextView) findViewById(R.id.result_text);
                         resultBox.setText(Sorting.toString(toSort));
@@ -280,7 +283,7 @@ public class MainActivity extends ActionBarActivity
                         insertPoint.addView(v, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
                     } else {
                         Context context = getApplicationContext();
-                        CharSequence text = "The number of the inputs shall be 6, and only 6. 5 will not cut it, unless you then proceed to input another number, making 6";
+                        CharSequence text = "Please only enter 6 numbers";
                         int duration = Toast.LENGTH_LONG;
                         Toast toast = Toast.makeText(context, text, duration);
                         toast.show();
