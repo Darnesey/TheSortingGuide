@@ -131,10 +131,10 @@ class SortSteps {
 }
 
 class Step {
-    // array before and array after can be removed later, but for now they are helpful for debuging
+    // array before and array after can be removed later, but for now they are helpful for debugging
     int[] arrayBefore;
     int[] arrayAfter;
-    // start and end are the starting and ending indexs of the moving value
+    // start and end are the starting and ending indexes of the moving value
     int start;
     int end;
 

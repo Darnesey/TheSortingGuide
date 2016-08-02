@@ -85,7 +85,11 @@ public class MainActivity extends ActionBarActivity
 
     }
 
+    /**
+     * Settings Window Fragment
+     */
     public static class PrefsFragment extends PreferenceFragment {
+
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -124,7 +128,10 @@ public class MainActivity extends ActionBarActivity
         }
     }
 
-    // Selection Options
+    /**
+     * Selection Options
+     * Setting the title bar variable name for the option selected
+      */
     public void onSectionAttached(int number) {
         switch (number) {
             case 1:
@@ -227,6 +234,10 @@ public class MainActivity extends ActionBarActivity
         }
     }
 
+    /**
+     * Method called when the go button is selected.
+     * @param view
+     */
     public void enter(View view) {
 //        retrieves the shared preferences for the randomizer, which is true or false
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -268,7 +279,7 @@ public class MainActivity extends ActionBarActivity
                     } else {
                         toSort = new int[0];
                     }
-                    if ( toSort != null && toSort.length <= 10) {
+                    if ( toSort != null && toSort.length <= 10 && toSort.length >= 3) {
                         toSort = sort(toSort, method);
                         TextView resultBox = (TextView) findViewById(R.id.result_text);
                         resultBox.setText(Sorting.toString(toSort));
@@ -283,7 +294,7 @@ public class MainActivity extends ActionBarActivity
                         insertPoint.addView(v, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
                     } else {
                         Context context = getApplicationContext();
-                        CharSequence text = "Please only enter 6 numbers";
+                        CharSequence text = "Invalid entry. Please try again";
                         int duration = Toast.LENGTH_LONG;
                         Toast toast = Toast.makeText(context, text, duration);
                         toast.show();
