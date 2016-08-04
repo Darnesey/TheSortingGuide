@@ -359,6 +359,7 @@ public class MainActivity extends ActionBarActivity
 
     public void AnimateMove(final View sort_view, final int[] unsorted, final Rect[] rex, final int start, final int end){
 
+        //todo: make a method that adjusts this variable
         int delayTime = 5;  //millis
 
         Runnable mR1 = new Runnable() {
