@@ -23,26 +23,41 @@
         android:layout_height="wrap_content"
         android:weightSum="1"
         android:id="@+id/Sort_Spinner">
+
         <Spinner
-            android:layout_width="wrap_content"
+            android:layout_width="231dp"
             android:layout_height="wrap_content"
             android:id="@+id/sortChoice"
-            android:layout_weight="1"
             android:layout_gravity="center_vertical"
             />
 
-            />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Random"
+            android:id="@+id/random_checkbox"
+            android:checked="false" /><![CDATA[
+
+        />
+    ]]>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight="1"
-        android:layout_gravity="center"
-        android:gravity="center|bottom"
-        android:id="@+id/sort_space"></LinearLayout>
+        android:layout_weight="0.98"
+        android:id="@+id/sort_space"
+        android:gravity="bottom">
 
+    </LinearLayout>
+
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/animation_speed"
+        android:indeterminate="false" />
 
     <TextView
         android:layout_width="wrap_content"
