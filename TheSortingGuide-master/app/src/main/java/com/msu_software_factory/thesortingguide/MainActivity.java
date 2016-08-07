@@ -16,8 +16,10 @@ import android.support.v7.app.ActionBar;
 import android.app.Fragment;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.AdapterView;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.app.FragmentManager;
 import android.content.Context;
@@ -52,7 +54,7 @@ public class MainActivity extends ActionBarActivity
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
-
+    private static int delayTime = 5;
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
@@ -70,6 +72,7 @@ public class MainActivity extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         handler = new Handler();
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -81,6 +84,8 @@ public class MainActivity extends ActionBarActivity
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, true);
+
+
 
 
     }
@@ -212,7 +217,7 @@ public class MainActivity extends ActionBarActivity
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             Spinner spinner = (Spinner) rootView.findViewById(R.id.sortChoice);
             // Create an ArrayAdapter using the string array and a default spinner layout
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(),
@@ -222,6 +227,39 @@ public class MainActivity extends ActionBarActivity
             // Apply the adapter to the spinner
             spinner.setAdapter(adapter);
             spinner.setOnItemSelectedListener(new SortSpinner());
+
+            //Set Random Checkbox to be checked
+            CheckBox random = (CheckBox) rootView.findViewById(R.id.random_checkbox);
+            random.setChecked(true);
+
+            TextView speedTitle = (TextView) rootView.findViewById(R.id.speed_label);
+            speedTitle.setText("Animation Speed: " + MainActivity.delayTime);
+            SeekBar seek = (SeekBar) rootView.findViewById(R.id.animation_speed);
+            seek.setMax(10);
+            seek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+                @Override
+                public void onStopTrackingTouch(SeekBar seekBar) {
+                    // check to see if animation speed is set to 0 seconds and fix it
+                    if (seekBar.getProgress() < 1){
+                        seekBar.setProgress(1);
+                    }
+                }
+
+                @Override
+                public void onStartTrackingTouch(SeekBar seekBar) {
+                    // do nothing!
+                }
+
+                @Override
+                public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
+                    // Adjust the delayTime variable
+                    MainActivity.adjustSpeed(progress);
+                    TextView speedTitle = (TextView) rootView.findViewById(R.id.speed_label);
+                    speedTitle.setText("Animation Speed: " + MainActivity.delayTime);
+                }
+            });
+
 
             return rootView;
         }
@@ -242,8 +280,9 @@ public class MainActivity extends ActionBarActivity
 //        retrieves the shared preferences for the randomizer, which is true or false
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         SortView.setActivity(this);
+        CheckBox randomOption = (CheckBox) findViewById(R.id.random_checkbox);
 
-        if (prefs.getBoolean("random_numbers", false)){
+        if (randomOption.isChecked()){
             this.toSort = Sorting.randList(10);
             TextView resultBox = (TextView) findViewById(R.id.result_text);
             toSort = sort(toSort, method);
@@ -311,6 +350,10 @@ public class MainActivity extends ActionBarActivity
         }
     }
 
+    public static void adjustSpeed(int speed){
+        delayTime = speed;
+    }
+
     public int[] parseArray(String in) {
         String[] bits = in.split(",");
         int[] arr = new int[bits.length];
@@ -359,8 +402,6 @@ public class MainActivity extends ActionBarActivity
 
     public void AnimateMove(final View sort_view, final int[] unsorted, final Rect[] rex, final int start, final int end){
 
-        //todo: make a method that adjusts this variable
-        int delayTime = 5;  //millis
 
         Runnable mR1 = new Runnable() {
             @Override
