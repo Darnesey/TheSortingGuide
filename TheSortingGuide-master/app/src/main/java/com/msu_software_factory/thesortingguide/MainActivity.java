@@ -238,12 +238,13 @@ public class MainActivity extends ActionBarActivity
             seek.setMax(10);
             seek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
+
+                /*
+                    This method is called when the slider bar is released
+                 */
                 @Override
                 public void onStopTrackingTouch(SeekBar seekBar) {
-                    // check to see if animation speed is set to 0 seconds and fix it
-                    if (seekBar.getProgress() < 1){
-                        seekBar.setProgress(1);
-                    }
+                    // check to see if animation speed is set to 0 seconds and fix it to be set at 1
                 }
 
                 @Override
@@ -251,12 +252,19 @@ public class MainActivity extends ActionBarActivity
                     // do nothing!
                 }
 
+
+                /*
+                    This method is called while the slider bar is being used
+                 */
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
                     // Adjust the delayTime variable
-                    MainActivity.adjustSpeed(progress);
+                    // Call the adjust speed method and pass across 'progress'
+
                     TextView speedTitle = (TextView) rootView.findViewById(R.id.speed_label);
-                    speedTitle.setText("Animation Speed: " + MainActivity.delayTime);
+
+                    // Set the text of the Animation speed to output the current speed
+                    // using the format: "Animation Speed: [progress]"
                 }
             });
 
