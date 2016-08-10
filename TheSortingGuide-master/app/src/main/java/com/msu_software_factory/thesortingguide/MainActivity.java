@@ -84,10 +84,6 @@ public class MainActivity extends ActionBarActivity
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, true);
-
-
-
-
     }
 
     /**
@@ -148,10 +144,6 @@ public class MainActivity extends ActionBarActivity
             case 3:
                 mTitle = "Descriptions";
                 break;
-            case 4:
-                mTitle = "Settings";
-                break;
-
         }
     }
 
@@ -350,6 +342,8 @@ public class MainActivity extends ActionBarActivity
             alertDialog.show();
         }
     }
+
+    public static int getMethod(){ return method; }
 
     public static void adjustSpeed(int speed){
         delayTime = speed;
