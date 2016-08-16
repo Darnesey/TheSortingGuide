@@ -272,6 +272,10 @@ public class MainActivity extends ActionBarActivity
         SortView.setActivity(this);
         CheckBox randomOption = (CheckBox) findViewById(R.id.random_checkbox);
 
+        TextView input_prompt = (TextView) findViewById(R.id.input_prompt);
+        EditText inputBleh = (EditText) findViewById(R.id.manualInput);
+        String inputStr = inputBleh.getText().toString();
+
         if (randomOption.isChecked()){
             this.toSort = Sorting.randList(10);
             TextView resultBox = (TextView) findViewById(R.id.result_text);
@@ -302,6 +306,7 @@ public class MainActivity extends ActionBarActivity
                     System.out.println(input.getText().toString());
                     String temp = input.getText().toString();
                    //                                                       Input random numbers formula.
+
                     int[] toSort;
                     if (input != null) {
                         toSort = parseArray(input.getText().toString());
@@ -337,6 +342,20 @@ public class MainActivity extends ActionBarActivity
                 }
             });
             alertDialog.show();
+        }
+    }
+
+    public void checkBoxCheck(){
+        CheckBox laBox = (CheckBox) findViewById(R.id.random_checkbox);
+        TextView input_prompt = (TextView) findViewById(R.id.input_prompt);
+        EditText inputStr = (EditText) findViewById(R.id.manualInput);
+
+        if(laBox.isChecked()){
+            input_prompt.setVisibility(View.VISIBLE);
+            inputStr.setVisibility(View.VISIBLE);
+        }else{
+            input_prompt.setVisibility(View.INVISIBLE);
+            inputStr.setVisibility(View.INVISIBLE);
         }
     }
 

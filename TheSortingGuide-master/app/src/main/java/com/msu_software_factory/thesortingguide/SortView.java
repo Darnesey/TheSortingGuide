@@ -61,7 +61,7 @@ public class SortView extends ImageView {
     @Override
     protected void onDraw(Canvas c){
         if (firstDraw){
-            viewSetUp();
+            viewSetUp(c);
             firstDraw = false;
         }
         for (int i = 0; i < sortedUnits.length; i++){
@@ -73,7 +73,7 @@ public class SortView extends ImageView {
         }
 
     }
-    private void viewSetUp(){
+    private void viewSetUp(Canvas c){
         int slotSize = this.getWidth() / unsorted.length;
         int xPos = 10;
         int yPos = this.getHeight() / 2;
