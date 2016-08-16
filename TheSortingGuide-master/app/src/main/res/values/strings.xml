@@ -12,7 +12,14 @@
     <string name="action_settings">Settings</string>
     <string name="action_desc">Go to description...</string>
     <string name="title_activity_main_screen">MainScreen</string>
-
+    <string name="developers">  Developers (in no order whatsoever):\n
+                                Jessica\n
+                                Michael\n
+                                Riley\n
+                                Amber\n
+                                Anna\n
+                                Xuying\n
+                                Ryan</string>
     <string name="hello_world">Hello world!</string>
     <string name="alertMessage"></string>
 

@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.msu_software_factory.thesortingguide.AboutFragment">
@@ -12,17 +12,40 @@
         android:gravity="center_horizontal"
         android:text="Produced from Montana State University&apos;s \nSoftware Factory"
         android:id="@+id/appProd"
-        />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:textSize="50dp"
+        android:textSize="40dp"
         android:textColor="#808080"
         android:text="The Sorting Guide"
         android:id="@+id/appTitle"
-        />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true" />
 
-</FrameLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_above="@+id/appProd"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/software_factory_arrow_symbol" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/developers"
+        android:id="@+id/authors"
+        android:layout_below="@+id/appTitle"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="25dp"
+        android:textSize="20dp"
+        android:textAlignment="center" />
+
+</RelativeLayout>
