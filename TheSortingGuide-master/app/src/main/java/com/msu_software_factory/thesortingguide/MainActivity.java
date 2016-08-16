@@ -83,11 +83,6 @@ public class MainActivity extends ActionBarActivity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
-        PreferenceManager.setDefaultValues(this, R.xml.preferences, true);
-
-
-
-
     }
 
     /**
@@ -100,8 +95,6 @@ public class MainActivity extends ActionBarActivity
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
 
-            // Load the preferences from an XML resource
-            addPreferencesFromResource(R.xml.preferences);
         }
 
         @Override
@@ -148,10 +141,6 @@ public class MainActivity extends ActionBarActivity
             case 3:
                 mTitle = "Descriptions";
                 break;
-            case 4:
-                mTitle = "Settings";
-                break;
-
         }
     }
 
@@ -350,6 +339,8 @@ public class MainActivity extends ActionBarActivity
             alertDialog.show();
         }
     }
+
+    public static int getMethod(){ return method; }
 
     public static void adjustSpeed(int speed){
         delayTime = speed;

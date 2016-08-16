@@ -1,5 +1,6 @@
 package com.msu_software_factory.thesortingguide;
 
+import android.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.support.v7.app.ActionBar;
@@ -105,7 +106,6 @@ public class NavigationDrawerFragment extends Fragment {
                         "About",
                         "Sort",
                         "Descriptions",
-                        "Settings",
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
@@ -251,12 +251,14 @@ public class NavigationDrawerFragment extends Fragment {
             return true;
         }
 
-        if (item.getItemId() == R.id.action_settingsDrop){
+        if (item.getItemId() == R.id.action_gotodesc){
             //((MainActivity) activity).onSectionAttached(4);
             //mCallbacks.onNavigationDrawerItemSelected(3);
-            selectItem(3);
+            selectItem(2);
+            MainActivity main = (MainActivity) getActivity();
+            Descriptions.pendingPosition = main.getMethod();
             ActionBar bar = getActionBar();
-            bar.setTitle("Settings");
+            bar.setTitle("Description");
         }
 
         if (item.getItemId() == R.id.action_example) {
@@ -266,6 +268,9 @@ public class NavigationDrawerFragment extends Fragment {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
 
     /**
      * Per the navigation drawer design guidelines, updates the action bar to show the global app
