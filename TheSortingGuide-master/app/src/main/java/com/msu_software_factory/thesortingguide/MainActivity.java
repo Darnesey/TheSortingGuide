@@ -148,9 +148,6 @@ public class MainActivity extends ActionBarActivity
             case 3:
                 mTitle = "Descriptions";
                 break;
-            case 4:
-                mTitle = "Settings";
-                break;
 
         }
     }
@@ -370,6 +367,7 @@ public class MainActivity extends ActionBarActivity
 
     public int[] sort(int[] theSort, int method) {
         int[] returnThis;
+        int option = method - 1;
         switch (method) {
             case 0:
                 returnThis = Sorting.bubbleSort(theSort);
@@ -377,8 +375,11 @@ public class MainActivity extends ActionBarActivity
             case 1:
                 returnThis = Sorting.selectionSort(theSort);
                 break;
-            default:
+            case 2:
                 returnThis = Sorting.insertionSort(theSort);
+                break;
+            default:
+                returnThis = Sorting.startQuickSort(theSort);
                 break;
         }
         return returnThis;
