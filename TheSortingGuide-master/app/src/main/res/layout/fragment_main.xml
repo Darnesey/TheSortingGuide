@@ -36,7 +36,7 @@
             android:text="Random Numbers"
             android:id="@+id/random_checkbox"
             android:checked="false"
-            android:onClick="checkBoxCheck" />
+            android:onClick="onCheckCheckBox" />
     </LinearLayout>
 
     <TextView

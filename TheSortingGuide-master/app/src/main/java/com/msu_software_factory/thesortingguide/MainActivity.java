@@ -253,12 +253,21 @@ public class MainActivity extends ActionBarActivity
             return rootView;
         }
 
+
+        public void checkBoxCheck(View view){
+            // nothing
+        }
+
         @Override
         public void onAttach(Activity activity) {
             super.onAttach(activity);
             ((MainActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
+    }
+
+    public void onCheckCheckBox(View view){
+
     }
 
     /**
