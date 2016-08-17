@@ -23,7 +23,7 @@
                                 Ryan\n
                                 Xuying</string>
     <string name="hello_world">Hello world!</string>
-    <string name="alertMessage"></string>
+    <string name="bad_input">Invalid entry. Please read the given prompt, and try again, you idiot.</string>
 
     <string-array name="sort_choice">
         <item>Bubble</item>
