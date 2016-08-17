@@ -110,6 +110,8 @@ public class Sorting {
         }
         return unsorted;
     }
+
+    //QUICK SORT
     public static int[] startQuickSort(int[] num) {
         sortSteps = new SortSteps();
 

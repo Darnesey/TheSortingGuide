@@ -50,6 +50,13 @@
         until it finds a location where the selected number is larger than the number before and smaller the number after.
         The process then moves the numbers to the right of the position over one, so the selected number can \'insert\' itself into the sorted section.
     </string>
+
+
+    <string name="quicksortDesc">This sorting method divides the array by selecting the last number as a pivot point and sorting the numbers so that numbers
+        on the left of the pivot point are smaller and numbers on the right are larger. This is repeated recursively until the array has been sorted.
+    </string>
+
+
     <string name="bubbleCode">"func bubblesort( var a as array )
      for i from 1 to N
         for j from 0 to N - 1
@@ -83,6 +90,31 @@ end func"</string>
             &#8202;j = j - 1
         a[ j + 1 ] = key
 end func"</string>
+
+
+    <string name="quicksortCode">"func quicksort(A as array, low as int, high as int)
+        if low &lt; high
+            pivot from Partition( A, low, high )
+            quicksort( A, low, pivot )
+            quicksort( A, pivot + 1, high )
+
+
+    Partition( A as array, low as int, high as int )
+         pivot = A[ low ]
+         leftwall = low
+
+         for i from low + 1 to high
+             if A[ i ] &lt; pivot then
+                 swap( A[ i ], A[ leftwall ] )
+                 leftwall = leftwall + 1
+
+
+         swap( pivot, A[ leftwall ] )
+
+        return ( leftwall )
+end func"</string>
+
+
     <string name="sort_unit">Sorting Unit</string>
 
 <!-- TODO: Remove or change this placeholder text -->
