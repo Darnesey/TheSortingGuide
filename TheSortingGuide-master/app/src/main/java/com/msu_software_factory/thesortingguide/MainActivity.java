@@ -227,7 +227,6 @@ public class MainActivity extends ActionBarActivity
             seek.setMax(10);
             seek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
-
                 @Override
                 public void onStopTrackingTouch(SeekBar seekBar) {
                     // check to see if animation speed is set to 0 seconds and fix it
@@ -370,8 +369,7 @@ public class MainActivity extends ActionBarActivity
                 returnThis = Sorting.selectionSort(theSort);
                 break;
             default:
-                returnThis = Sorting.insertionSort(theSort);
-                break;
+                returnThis = Sorting.startQuickSort(theSort);
         }
         return returnThis;
     }

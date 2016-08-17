@@ -6,6 +6,8 @@
     <string name="title_section1">Bubble</string>
     <string name="title_section2">Selection</string>
     <string name="title_section3">Insertion</string>
+    <string name="title_section4">Quick Sort</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
@@ -27,6 +29,8 @@
         <item>Bubble</item>
         <item>Selection</item>
         <item>Insertion</item>
+        <item>QuickSort</item>
+
     </string-array>
 
     <string name="bubbleDesc">Think of this sorting method as a line of bubbles.
