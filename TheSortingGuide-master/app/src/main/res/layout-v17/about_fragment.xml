@@ -52,6 +52,7 @@
         android:id="@+id/textView"
         android:gravity="center_horizontal"
         android:layout_below="@+id/appTitle"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:paddingTop="15dp" />
 
 </RelativeLayout>
