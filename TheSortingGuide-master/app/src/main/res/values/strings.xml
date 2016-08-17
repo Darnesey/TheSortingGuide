@@ -6,20 +6,22 @@
     <string name="title_section1">Bubble</string>
     <string name="title_section2">Selection</string>
     <string name="title_section3">Insertion</string>
+    <string name="title_section4">Quick Sort</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
     <string name="action_desc">Go to description...</string>
     <string name="title_activity_main_screen">MainScreen</string>
-    <string name="developers">  Developers (in no order whatsoever):\n
+    <string name="developers">  Developers:\n
+                                Amber\n
+                                Anna\n
                                 Jessica\n
                                 Michael\n
                                 Riley\n
-                                Amber\n
-                                Anna\n
-                                Xuying\n
-                                Ryan</string>
+                                Ryan\n
+                                Xuying</string>
     <string name="hello_world">Hello world!</string>
     <string name="alertMessage"></string>
 
@@ -27,6 +29,8 @@
         <item>Bubble</item>
         <item>Selection</item>
         <item>Insertion</item>
+        <item>QuickSort</item>
+
     </string-array>
 
     <string name="bubbleDesc">Think of this sorting method as a line of bubbles.
