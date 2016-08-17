@@ -45,12 +45,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enter 3 to 10 randomly assorted numbers (the lesser the faster) ranging between and including 0 and 99, with each number separated by commas."
-        android:id="@+id/input_prompt" />
+        android:id="@+id/input_prompt"
+        android:visibility="gone"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/manualInput" />
+        android:id="@+id/manualInput"
+        android:visibility="gone"/>
 
     <LinearLayout
         android:layout_width="match_parent"
