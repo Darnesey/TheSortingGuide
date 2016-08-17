@@ -12,8 +12,16 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
+    <string name="action_desc">Go to description...</string>
     <string name="title_activity_main_screen">MainScreen</string>
-
+    <string name="developers">  Developers:\n
+                                Amber\n
+                                Anna\n
+                                Jessica\n
+                                Michael\n
+                                Riley\n
+                                Ryan\n
+                                Xuying</string>
     <string name="hello_world">Hello world!</string>
     <string name="alertMessage"></string>
 
@@ -42,14 +50,39 @@
         until it finds a location where the selected number is larger than the number before and smaller the number after.
         The process then moves the numbers to the right of the position over one, so the selected number can \'insert\' itself into the sorted section.
     </string>
-    <string name="bubbleCode">func bubblesort( var a as array )
-    for i from 1 to N
+    <string name="bubbleCode">"func bubblesort( var a as array )
+     for i from 1 to N
         for j from 0 to N - 1
-           if a[j] > a[j + 1]
-              swap( a[j], a[j + 1] )
-end func</string>
-    <string name="selectionCode">SELECTION</string>
-    <string name="insertionCode">INSERTION</string>
+           if a[ j ] > a[ j + 1 ]
+              swap( a[ j ], a[ j + 1 ] )
+end func"</string>
+    <string name="selectionCode">"func selectionsort( list )
+    max = length( lst ) - 1
+
+    for i from 0 to max
+        key = lst[ i ]
+        keyj = i
+
+        for j from i+1 to max
+            if lst[ j ] &lt; key
+            key = lst[ j ]
+                keyj = j
+
+        lst[ keyj ] = lst[ i ]
+        lst[ i ] = key
+
+    return lst
+
+end func"</string>
+    <string name="insertionCode">"func insertionsort( list )
+    for i from 1 to N
+        key = a[ i ]
+        j = i - 1
+        while j >= 0 and a[ j ] > key
+            a[ j + 1 ] = a[ j ]
+            &#8202;j = j - 1
+        a[ j + 1 ] = key
+end func"</string>
     <string name="sort_unit">Sorting Unit</string>
 
 <!-- TODO: Remove or change this placeholder text -->

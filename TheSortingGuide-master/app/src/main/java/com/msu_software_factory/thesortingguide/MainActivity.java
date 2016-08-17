@@ -83,11 +83,6 @@ public class MainActivity extends ActionBarActivity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
-        PreferenceManager.setDefaultValues(this, R.xml.preferences, true);
-
-
-
-
     }
 
     /**
@@ -100,8 +95,6 @@ public class MainActivity extends ActionBarActivity
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
 
-            // Load the preferences from an XML resource
-            addPreferencesFromResource(R.xml.preferences);
         }
 
         @Override
@@ -148,7 +141,6 @@ public class MainActivity extends ActionBarActivity
             case 3:
                 mTitle = "Descriptions";
                 break;
-
         }
     }
 
@@ -347,6 +339,8 @@ public class MainActivity extends ActionBarActivity
         }
     }
 
+    public static int getMethod(){ return method; }
+
     public static void adjustSpeed(int speed){
         delayTime = speed;
     }
@@ -367,7 +361,6 @@ public class MainActivity extends ActionBarActivity
 
     public int[] sort(int[] theSort, int method) {
         int[] returnThis;
-        int option = method - 1;
         switch (method) {
             case 0:
                 returnThis = Sorting.bubbleSort(theSort);
@@ -375,12 +368,8 @@ public class MainActivity extends ActionBarActivity
             case 1:
                 returnThis = Sorting.selectionSort(theSort);
                 break;
-            case 2:
-                returnThis = Sorting.insertionSort(theSort);
-                break;
             default:
                 returnThis = Sorting.startQuickSort(theSort);
-                break;
         }
         return returnThis;
     }
