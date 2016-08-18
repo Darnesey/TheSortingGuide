@@ -34,30 +34,25 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:src="@drawable/software_factory_arrow_symbol"
-        android:layout_marginLeft="28dp"
-        android:layout_marginStart="28dp"
-        android:layout_below="@+id/appTitle"
+        android:layout_marginTop="77dp"
+        android:padding="3dp"
+        android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="140dp"
-        android:layout_marginRight="33dp"
-        android:layout_marginEnd="33dp"
-        android:layout_marginBottom="175dp"
         android:layout_above="@+id/appProd"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="59dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/developers"
+        android:text= "@string/developers"
         android:id="@+id/textView"
+        android:gravity="center_horizontal"
         android:layout_below="@+id/appTitle"
         android:layout_centerHorizontal="true"
-        android:gravity="center_vertical|center_horizontal"
-        android:textAlignment="center"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true" />
+        android:paddingTop="15dp" />
 
 </RelativeLayout>

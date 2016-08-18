@@ -13,10 +13,12 @@ import android.widget.TextView;
 
 public class Descriptions extends Fragment {
     static TextView desc, code;
+    static View rootView;
+    static int pendingPosition = 0;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_descriptions, container, false);
+        rootView = inflater.inflate(R.layout.fragment_descriptions, container, false);
         Spinner descSpinner = (Spinner) rootView.findViewById(R.id.descSpinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(),
@@ -40,6 +42,12 @@ public class Descriptions extends Fragment {
         ((MainActivity) activity).onSectionAttached(3);
     }
     public static void getDesc(int position){
+        // Check for a pending order
+        if (pendingPosition != 0) {
+            Spinner spin = (Spinner) rootView.findViewById(R.id.descSpinner);
+            spin.setSelection(pendingPosition);
+            position = pendingPosition;
+        }
         switch(position){
             case 0:
                 desc.setText(R.string.bubbleDesc);
@@ -53,7 +61,13 @@ public class Descriptions extends Fragment {
                 desc.setText(R.string.insertionDesc);
                 code.setText(R.string.insertionCode);
                 break;
+            case 3:
+                desc.setText(R.string.quicksortDesc);
+                code.setText(R.string.quicksortCode);
+                break;
         }
+        //reset pending order
+        pendingPosition = 0;
     }
 
     public static class descSpinner extends Activity implements AdapterView.OnItemSelectedListener {

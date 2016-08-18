@@ -6,19 +6,31 @@
     <string name="title_section1">Bubble</string>
     <string name="title_section2">Selection</string>
     <string name="title_section3">Insertion</string>
+    <string name="title_section4">Quick Sort</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
+    <string name="action_desc">Go to description...</string>
     <string name="title_activity_main_screen">MainScreen</string>
-
+    <string name="developers">  <b>Developers:</b>\n
+                                Amber Nabity\n
+                                Anna Jinneman\n
+                                Jessica Jorgenson\n
+                                Michael O\'Hara\n
+                                Riley Roberts\n
+                                Ryan Darnell\n
+                                Xuying Wang</string>
     <string name="hello_world">Hello world!</string>
-    <string name="alertMessage"></string>
+    <string name="bad_input">Invalid entry. Please read the given prompt, and try again, you idiot.</string>
 
     <string-array name="sort_choice">
         <item>Bubble</item>
         <item>Selection</item>
         <item>Insertion</item>
+        <item>QuickSort</item>
+
     </string-array>
 
     <string name="bubbleDesc">Think of this sorting method as a line of bubbles.
@@ -38,14 +50,62 @@
         until it finds a location where the selected number is larger than the number before and smaller the number after.
         The process then moves the numbers to the right of the position over one, so the selected number can \'insert\' itself into the sorted section.
     </string>
-    <string name="bubbleCode">func bubblesort( var a as array )
-    for i from 1 to N
+
+
+    <string name="quicksortDesc">This sorting method divides the array by selecting the last number as a pivot point and sorting the numbers so that numbers
+        on the left of the pivot point are smaller and numbers on the right are larger. This is repeated recursively until the array has been sorted.
+    </string>
+
+
+    <string name="bubbleCode">"func bubblesort( var a as array )
+     for i from 1 to N
         for j from 0 to N - 1
-           if a[j] > a[j + 1]
-              swap( a[j], a[j + 1] )
-end func</string>
-    <string name="selectionCode">SELECTION</string>
-    <string name="insertionCode">INSERTION</string>
+           if a[ j ] > a[ j + 1 ]
+              swap( a[ j ], a[ j + 1 ] )
+end func"</string>
+    <string name="selectionCode">"func selectionsort( list )
+    max = length( lst ) - 1
+    for i from 0 to max
+        key = lst[ i ]
+        keyj = i
+        for j from i+1 to max
+            if lst[ j ] &lt; key
+            key = lst[ j ]
+                keyj = j
+        lst[ keyj ] = lst[ i ]
+        lst[ i ] = key
+    return lst
+end func"</string>
+    <string name="insertionCode">"func insertionsort( list )
+    for i from 1 to N
+        key = a[ i ]
+        j = i - 1
+        while j >= 0 and a[ j ] > key
+            a[ j + 1 ] = a[ j ]
+            &#8202;j = j - 1
+        a[ j + 1 ] = key
+end func"</string>
+
+
+    <string name="quicksortCode">"func quicksort(A as array, low as int, high as int)
+        if low &lt; high
+            pivot from Partition( A, low, high )
+            quicksort( A, low, pivot )
+            quicksort( A, pivot + 1, high )
+    end func
+
+func Partition( A as array, low as int, high as int )
+         pivot = A[ low ]
+         leftwall = low
+         for i from low + 1 to high
+             if A[ i ] &lt; pivot then
+                 swap( A[ i ], A[ leftwall ] )
+                 leftwall = leftwall + 1
+         swap( pivot, A[ leftwall ] )
+        return ( leftwall )
+end func"</string>
+
+
     <string name="sort_unit">Sorting Unit</string>
 
 <!-- TODO: Remove or change this placeholder text -->
