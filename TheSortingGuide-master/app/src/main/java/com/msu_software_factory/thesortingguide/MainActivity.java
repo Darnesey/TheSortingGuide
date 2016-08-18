@@ -270,7 +270,6 @@ public class MainActivity extends ActionBarActivity
         CheckBox laBox = (CheckBox) findViewById(R.id.random_checkbox);
         TextView input_prompt = (TextView) findViewById(R.id.input_prompt);
         EditText laInput = (EditText) findViewById(R.id.manualInput);
-
         if(laBox.isChecked()){
             input_prompt.setVisibility(View.GONE);
             laInput.setVisibility(View.GONE);
@@ -334,6 +333,8 @@ public class MainActivity extends ActionBarActivity
                 ViewGroup insertPoint = (ViewGroup) findViewById(R.id.sort_space);
                 insertPoint.addView(v, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
             } else {
+                input_prompt.setVisibility(View.VISIBLE);
+                laInput.setVisibility(View.VISIBLE);
                 Context context = getApplicationContext();
                 CharSequence text = "Invalid entry. Please try again";
                 int duration = Toast.LENGTH_LONG;

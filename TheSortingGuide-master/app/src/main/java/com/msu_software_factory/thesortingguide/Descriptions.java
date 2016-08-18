@@ -61,6 +61,10 @@ public class Descriptions extends Fragment {
                 desc.setText(R.string.insertionDesc);
                 code.setText(R.string.insertionCode);
                 break;
+            case 3:
+                desc.setText(R.string.quicksortDesc);
+                code.setText(R.string.quicksortCode);
+                break;
         }
         //reset pending order
         pendingPosition = 0;
